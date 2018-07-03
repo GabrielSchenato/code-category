@@ -2,6 +2,7 @@
 
 namespace CodePress\CodeCategory\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -12,9 +13,11 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
 
+    use Sluggable;
+
     protected $table = "codepress_categories";
     protected $fillable = [
-        'name', 'active', 'parent_id'
+        'name', 'slug', 'active', 'parent_id'
     ];
 
     public function parent()
@@ -25,6 +28,17 @@ class Category extends Model
     public function children()
     {
         return $this->hasMany(Category::class, 'parent_id');
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'build_from' => 'name',
+                'save_to' => 'slug',
+                'unique' => true
+            ]
+        ];
     }
 
 }
