@@ -19,6 +19,11 @@ class Category extends Model
     protected $fillable = [
         'name', 'slug', 'active', 'parent_id'
     ];
+    
+    public function categorizable()
+    {
+        return $this->morphTo();
+    }
 
     public function parent()
     {
