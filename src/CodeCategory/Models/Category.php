@@ -4,6 +4,7 @@ namespace CodePress\CodeCategory\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Validation\Validator;
 
 /**
  * Description of Category
@@ -19,6 +20,18 @@ class Category extends Model
     protected $fillable = [
         'name', 'slug', 'active', 'parent_id'
     ];
+    
+    private $validator;
+
+    function getValidator()
+    {
+        return $this->validator;
+    }
+        
+    public function setValidator(Validator $validator)
+    {
+        $this->validator = $validator;
+    }
     
     public function categorizable()
     {
