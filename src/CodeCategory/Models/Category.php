@@ -39,9 +39,7 @@ class Category extends Model
     {
         return [
             'slug' => [
-                'build_from' => 'name',
-                'save_to' => 'slug',
-                'unique' => true
+                'source' => 'name'
             ]
         ];
     }

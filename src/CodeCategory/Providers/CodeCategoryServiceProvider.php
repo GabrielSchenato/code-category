@@ -16,7 +16,7 @@ class CodeCategoryServiceProvider extends ServiceProvider
     {
         $this->publishes([__DIR__ . '/../../resources/migrations/' => base_path('database/migrations')], 'migrations');
         $this->loadViewsFrom(__DIR__ . '/../../resources/views/codecategory', 'codecategory');
-        require_once __DIR__ . '/../routes.php';
+        require __DIR__ . '/../routes.php';
     }
 
     public function register()
