@@ -26,6 +26,7 @@ class AdminCategoriesController extends Controller
     
     public function create()
     {
-        return view('codecategory::create');
+        $categories = $this->category->all();
+        return view('codecategory::create', compact('categories'));
     }
 }
