@@ -1,7 +1,7 @@
 <?php
 
-Route::prefix('categories')
+Route::prefix('admin/categories')
         ->namespace('CodePress\CodeCategory\Controllers')
         ->group(function () {
-            Route::get('test', 'AdminCategoriesController@index');
+            Route::get('', 'AdminCategoriesController@index');
         });
