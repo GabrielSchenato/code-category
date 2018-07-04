@@ -33,6 +33,15 @@ class Category extends Model
         $this->validator = $validator;
     }
     
+    public function isValid()
+    {
+        $validator = $this->validator;
+        $validator->setRules(['name' => 'required|max:255']);
+        $validator->setData($this->attributes);
+        
+        return !$validator->fails();
+    }
+    
     public function categorizable()
     {
         return $this->morphTo();
