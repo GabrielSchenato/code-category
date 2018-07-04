@@ -3,6 +3,7 @@
 namespace CodePress\CodeCategory\Controllers;
 
 use CodePress\CodeCategory\Models\Category;
+use Illuminate\Http\Request;
 
 /**
  * Description of AdminCategoriesController
@@ -28,5 +29,12 @@ class AdminCategoriesController extends Controller
     {
         $categories = $this->category->all();
         return view('codecategory::create', compact('categories'));
+    }
+    
+    public function store(Request $request)
+    {
+        $this->category->create($request->all());
+        
+        return redirect()->route('admin.categories.index');
     }
 }

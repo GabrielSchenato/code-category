@@ -14,7 +14,7 @@
                     @endif
 
                     <h4>Create Category</h4>
-                    {!! Form::open(['route' => 'admin.categories.create', 'method' => 'post']) !!}
+                    {!! Form::open(['route' => 'admin.categories.store', 'method' => 'post']) !!}
 
                     @include('codecategory::_form')
 
