@@ -39,7 +39,13 @@ class Category extends Model
         $validator->setRules(['name' => 'required|max:255']);
         $validator->setData($this->attributes);
         
-        return !$validator->fails();
+        if($validator->fails())
+        {
+            $this->errors = $validator->errors();
+            return false;
+        }
+        
+        return true;
     }
     
     public function categorizable()
