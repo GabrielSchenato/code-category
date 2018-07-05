@@ -1,6 +1,6 @@
 <?php
 
-namespace CodePress\CodeCategory\Tests\Models;
+namespace CodePress\CodeCategory\Tests\Controllers;
 
 use CodePress\CodeCategory\Models\Category;
 use CodePress\CodeCategory\Tests\AbstractTestCase;

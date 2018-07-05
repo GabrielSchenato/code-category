@@ -8,7 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 /**
- * Description of AdminCategoriesController
+ * Description of Controller
  *
  * @author gabriel
  */
