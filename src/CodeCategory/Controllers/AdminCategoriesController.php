@@ -33,7 +33,7 @@ class AdminCategoriesController extends Controller
     {
         $categories = $this->category->all();
         $category = $this->category->find($id);
-        return view('codecategory::show', compact('category', 'categories'));
+        return $this->response->view('codecategory::show', compact('category', 'categories'));
     }
     
     public function create()
