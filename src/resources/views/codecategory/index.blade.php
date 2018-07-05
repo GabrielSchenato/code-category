@@ -8,21 +8,21 @@
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
 
-                    
+
                     <a href="{{ route('admin.categories.create') }}" class="btn btn-primary">Create Category</a>
-                    
+
                     <br>
                     <br>
                     <hr>
-                    
+
                     <h4>Categories</h4>
 
-                    
+
                     <table class="table">
                         <thead>
                             <tr>
@@ -38,7 +38,12 @@
                                 <td>{{ $category->id }}</td>
                                 <td>{{ $category->name }}</td>
                                 <td>{{ $category->active ? 'Yes' : 'No' }}</td>
-                                <td></td>
+                                <td>
+                                    <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-outline-primary">Edit category</a>
+                                    {!! Form::model($category, ['route' => ['admin.categories.destroy', $category->id], 'method' => 'delete', 'style' => 'display: inline;']) !!}
+                                        {!! Form::submit('Delete category', ['class' => 'btn btn-outline-danger']) !!}
+                                    {!! Form::close() !!}
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
