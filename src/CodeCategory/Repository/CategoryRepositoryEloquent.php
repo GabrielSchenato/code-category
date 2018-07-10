@@ -6,11 +6,11 @@ use CodePress\CodeDatabase\AbstractRepository;
 use CodePress\CodeCategory\Models\Category;
 
 /**
- * Description of CategoryRepository
+ * Description of CategoryRepositoryEloquent
  *
  * @author gabriel
  */
-class CategoryRepository extends AbstractRepository
+class CategoryRepositoryEloquent extends AbstractRepository implements CategoryRepositoryInterface
 {
 
     public function model()

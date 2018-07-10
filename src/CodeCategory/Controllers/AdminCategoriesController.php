@@ -2,7 +2,7 @@
 
 namespace CodePress\CodeCategory\Controllers;
 
-use CodePress\CodeCategory\Repository\CategoryRepository;
+use CodePress\CodeCategory\Repository\CategoryRepositoryInterface;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 
@@ -17,7 +17,7 @@ class AdminCategoriesController extends Controller
     private $response;
     private $repository;
     
-    public function __construct(ResponseFactory $response, CategoryRepository $repository)
+    public function __construct(ResponseFactory $response, CategoryRepositoryInterface $repository)
     {
         $this->repository = $repository;
         $this->response = $response;
