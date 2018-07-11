@@ -50,7 +50,7 @@ class Category extends Model
     
     public function posts()
     {
-        return $this->morphedByMany('CodePress\CodeCategory\Models\Post', 'categorizable', 'codepress_categorizables');
+        return $this->morphedByMany('CodePress\CodePosts\Models\Post', 'categorizable', 'codepress_categorizables');
     }
 
     public function parent()
