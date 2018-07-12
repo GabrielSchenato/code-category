@@ -93,7 +93,7 @@ class CategoryTest extends AbstractTestCase
     {
         $category = Category::create(['name' => 'Category Test', 'active' => true]);
         $post1 = Post::create(['title' => 'meu post 1', 'content' => 'meu conteudo 1']);
-        $post2 = Post::create(['title' => 'meu post 2', 'content' => 'meu conteudo 2venb']);
+        $post2 = Post::create(['title' => 'meu post 2', 'content' => 'meu conteudo 2']);
         
         $post1->categories()->save($category);
         $post2->categories()->save($category);
