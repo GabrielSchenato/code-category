@@ -23,8 +23,6 @@
         "illuminate/database": "^5.6",
         "illuminate/validation": "^5.6",
         "cviebrock/eloquent-sluggable": "^4.5",
-        "schenato/code-database": "dev-master",
-        "schenato/code-user": "dev-master",
         "doctrine/dbal": "^2.7"
     },
     "require-dev": {
@@ -34,7 +32,9 @@
     },
     "autoload": {
         "psr-4": {
-            "CodePress\\CodeCategory\\": "src/CodeCategory/"
+            "CodePress\\CodeCategory\\": "src/CodeCategory/",
+            "CodePress\\CodeDatabase\\": "../codedatabase/src/CodeDatabase/",
+            "CodePress\\CodeUser\\": "../codeuser/src/CodeUser/"
         }
     }
 }
