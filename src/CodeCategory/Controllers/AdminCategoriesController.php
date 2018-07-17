@@ -68,4 +68,16 @@ class AdminCategoriesController extends Controller
         $this->repository->find($id)->delete();
         return redirect()->route('admin.categories.index');
     }
+    
+    public function deleted()
+    {
+        $categories = $this->repository->deleted();
+        return $this->response->view('codecategory::deleted', compact('categories'));
+    }
+    
+    public function restore(int $id)
+    {
+        $this->repository->restore($id);
+        return redirect()->route('admin.categories.index');
+    }
 }

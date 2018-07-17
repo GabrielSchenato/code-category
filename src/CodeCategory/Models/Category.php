@@ -5,6 +5,7 @@ namespace CodePress\CodeCategory\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Description of Category
@@ -13,10 +14,12 @@ use Illuminate\Contracts\Validation\Validator;
  */
 class Category extends Model
 {
+    use SoftDeletes;
 
     use Sluggable;
 
     protected $table = "codepress_categories";
+    protected $dates = ['deleted_at'];
     protected $fillable = [
         'name', 'slug', 'active', 'parent_id'
     ];

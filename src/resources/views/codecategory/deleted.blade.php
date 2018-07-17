@@ -12,15 +12,11 @@
                         {{ session('status') }}
                     </div>
                     @endif
-
-
-                    <a href="{{ route('admin.categories.create') }}" class="btn btn-primary">Create Category</a>
-                    <a href="{{ route('admin.categories.deleted') }}" class="btn btn-dark btn-sm">Deleted Categories</a>
                     <br>
                     <br>
                     <hr>
 
-                    <h4>Categories</h4>
+                    <h4>Deleted Categories</h4>
 
 
                     <table class="table">
@@ -39,10 +35,7 @@
                                 <td>{{ $category->name }}</td>
                                 <td>{{ $category->active ? 'Yes' : 'No' }}</td>
                                 <td>
-                                    <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-outline-primary">Edit category</a>
-                                    {!! Form::model($category, ['route' => ['admin.categories.destroy', $category->id], 'method' => 'delete', 'style' => 'display: inline;']) !!}
-                                        {!! Form::submit('Delete category', ['class' => 'btn btn-outline-danger']) !!}
-                                    {!! Form::close() !!}
+                                    <a href="{{ route('admin.categories.restore', $category->id) }}" class="btn btn-outline-warning">Restore category</a>
                                 </td>
                             </tr>
                             @endforeach
