@@ -28,6 +28,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
+                                <th>Parent</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -37,6 +38,7 @@
                             <tr>
                                 <td>{{ $category->id }}</td>
                                 <td>{{ $category->name }}</td>
+                                <td>{{ $category->parent_id }}</td>
                                 <td>{{ $category->active ? 'Yes' : 'No' }}</td>
                                 <td>
                                     <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-outline-primary">Edit category</a>

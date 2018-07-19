@@ -44,7 +44,17 @@ class AdminCategoriesController extends Controller
     
     public function store(Request $request)
     {
-        $this->repository->create($request->all());
+        $data = $request->all();
+        if(!isset($data['active'])){
+            $data['active'] = false;
+        } else {
+            $data['active'] = true;
+        }
+        
+        if(!isset($data['parent_id']) || (isset($data['parent_id']) && $data['parent_id'] == '')){
+            $data['parent_id'] = null;
+        }
+        $this->repository->create($data);
         
         return redirect()->route('admin.categories.index');
     }
@@ -58,7 +68,18 @@ class AdminCategoriesController extends Controller
     
     public function update(int $id, Request $request)
     {
-        $this->repository->update($request->all(), $id);
+        $data = $request->all();
+        if(!isset($data['active'])){
+            $data['active'] = false;
+        } else {
+            $data['active'] = true;
+        }
+        
+        if(!isset($data['parent_id']) || (isset($data['parent_id']) && $data['parent_id'] == '')){
+            $data['parent_id'] = null;
+        }
+        
+        $this->repository->update($data, $id);
         
         return redirect()->route('admin.categories.index');
     }
