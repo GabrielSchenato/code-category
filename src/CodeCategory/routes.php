@@ -2,7 +2,7 @@
 
 Route::name('admin.')
         ->prefix('admin/')
-        ->middleware('web', 'auth')
+        ->middleware('web', 'auth', 'authorization:access_categories')
         ->namespace('CodePress\CodeCategory\Controllers')
         ->group(function () {
             Route::get('categories/deleted', 'AdminCategoriesController@deleted')->name('categories.deleted');

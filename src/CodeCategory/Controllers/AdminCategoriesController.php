@@ -25,14 +25,12 @@ class AdminCategoriesController extends Controller
     
     public function index()
     {
-        $this->auth();
         $categories = $this->repository->all();
         return $this->response->view('codecategory::index', compact('categories'));
     }
     
     public function show(int $id)
     {
-        $this->auth();
         $categories = $this->repository->all();
         $category = $this->repository->find($id);
         return $this->response->view('codecategory::show', compact('category', 'categories'));
@@ -40,14 +38,12 @@ class AdminCategoriesController extends Controller
     
     public function create()
     {
-        $this->auth();
         $categories = $this->repository->all();
         return $this->response->view('codecategory::create', compact('categories'));
     }
     
     public function store(Request $request)
     {
-        $this->auth();
         $data = $request->all();
         if(!isset($data['active'])){
             $data['active'] = false;
@@ -65,7 +61,6 @@ class AdminCategoriesController extends Controller
     
     public function edit(int $id)
     {
-        $this->auth();
         $category = $this->repository->find($id);
         $categories = $this->repository->all();
         return $this->response->view('codecategory::edit', compact('category', 'categories'));
@@ -73,7 +68,6 @@ class AdminCategoriesController extends Controller
     
     public function update(int $id, Request $request)
     {
-        $this->auth();
         $data = $request->all();
         if(!isset($data['active'])){
             $data['active'] = false;
@@ -92,27 +86,19 @@ class AdminCategoriesController extends Controller
     
     public function destroy(int $id)
     {
-        $this->auth();
         $this->repository->find($id)->delete();
         return redirect()->route('admin.categories.index');
     }
     
     public function deleted()
     {
-        $this->auth();
         $categories = $this->repository->deleted();
         return $this->response->view('codecategory::deleted', compact('categories'));
     }
     
     public function restore(int $id)
     {
-        $this->auth();
         $this->repository->restore($id);
         return redirect()->route('admin.categories.index');
-    }
-    
-    private function auth()
-    {
-        $this->authorize('access_categories');
     }
 }
