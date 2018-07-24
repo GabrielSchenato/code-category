@@ -30,12 +30,17 @@
     "require-dev": {
         "phpunit/phpunit": "^7.2",
         "orchestra/testbench": "~3.6",
-        "mockery/mockery": "^1.1",
-        "schenato/code-posts": "^0.0.1"
+        "mockery/mockery": "^1.1"
     },
     "autoload": {
         "psr-4": {
             "CodePress\\CodeCategory\\": "src/CodeCategory/"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/codeedu/laravel-tinymce.git"
+        }
+    ]
 }
