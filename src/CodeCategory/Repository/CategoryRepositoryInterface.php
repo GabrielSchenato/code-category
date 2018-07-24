@@ -12,4 +12,5 @@ use CodePress\CodeDatabase\Contracts\CriteriaCollectionInterface;
  */
 interface CategoryRepositoryInterface extends RepositoryInterface, CriteriaCollectionInterface
 {
+    public function getCategoriesAndCount(string $model);
 }

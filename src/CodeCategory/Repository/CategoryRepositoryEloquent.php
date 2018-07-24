@@ -17,5 +17,10 @@ class CategoryRepositoryEloquent extends AbstractRepository implements CategoryR
     {
         return Category::class;
     }
+    
+    public function getCategoriesAndCount(string $model)
+    {
+        return $this->model->withCount($model)->get();
+    }
 
 }
